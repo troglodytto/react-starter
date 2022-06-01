@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@material-ui/core';
+import { ThemeProvider } from '@mui/material';
 import App from 'App';
 import 'index.scss';
 import theme from 'materialUi';
