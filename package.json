@@ -35,12 +35,6 @@
     "lint": "eslint src/**/*.ts{,x}",
     "format": "prettier src/**/* --write"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
