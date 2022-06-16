@@ -3,7 +3,7 @@ import App from 'App';
 import 'index.scss';
 import theme from 'materialUi';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { MutationCache, QueryClient, QueryClientProvider } from 'react-query';
 import { Provider as StateProvider } from 'react-redux';
 import reportWebVitals from 'reportWebVitals';
@@ -13,7 +13,11 @@ const queryClient = new QueryClient({
   mutationCache: new MutationCache({}),
 });
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+
+root.render(
   <React.StrictMode>
     <StateProvider store={store}>
       <ThemeProvider theme={theme}>
@@ -22,8 +26,7 @@ ReactDOM.render(
         </QueryClientProvider>
       </ThemeProvider>
     </StateProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
 
 reportWebVitals();
