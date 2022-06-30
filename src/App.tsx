@@ -1,3 +1,6 @@
+import { useState } from 'react';
+
 export default function App() {
-  return <div className="App">Hello, world!</div>;
+  const [thisState] = useState('Somethgin');
+  return <div className="App">{thisState}</div>;
 }
