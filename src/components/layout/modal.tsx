@@ -1,12 +1,5 @@
 import { Backdrop, Box, Fade, Modal as MuiModal } from '@mui/material';
-import {
-  createContext,
-  ReactNode,
-  useMemo,
-  useState,
-  FC,
-  useContext,
-} from 'react';
+import { createContext, ReactNode, useMemo, useState, FC } from 'react';
 import styled from 'styled-components';
 
 interface IGlobalModalContext {
@@ -18,11 +11,6 @@ export const GlobalModalContext = createContext<IGlobalModalContext>({
   close: () => {},
 });
 
-export const useModal = () => {
-  const context = useContext(GlobalModalContext);
-  return context;
-};
-
 export const Modal = styled(MuiModal)`
   display: flex !important;
   align-items: center !important;
@@ -32,14 +20,14 @@ export const Modal = styled(MuiModal)`
 `;
 
 export const PopupBox = styled(Box)`
-  background-color: white !important;
+  background-color: ${props => props.theme.white} !important;
   z-index: 1400; // 100 More than z-index of 'Modal'
-  border-radius: 6px;
+  border-radius: ${props => props.theme.borderRadius};
   width: min(40rem, 95vw);
-  padding: 48px;
+  padding: 3rem;
 
-  @media (max-width: 500px) {
-    padding: 16px;
+  @media (max-width: ${props => props.theme.mobileSize}) {
+    padding: 1rem;
   }
 `;
 

@@ -1,7 +1,4 @@
-import { ThemeProvider } from '@mui/material';
 import ReactApp from 'pages';
-import 'index.scss';
-import theme from 'material-ui';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { MutationCache, QueryClient, QueryClientProvider } from 'react-query';
@@ -9,6 +6,8 @@ import { Provider as StateProvider } from 'react-redux';
 import reportWebVitals from 'reportWebVitals';
 import store from 'store';
 import GlobalModalContextProvider from 'components/layout/modal';
+import ThemeProvider from 'theme';
+import 'index.scss';
 
 const queryClient = new QueryClient({
   mutationCache: new MutationCache({}),
@@ -22,7 +21,7 @@ root.render(
   <React.StrictMode>
     <StateProvider store={store}>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider>
           <GlobalModalContextProvider>
             <ReactApp />
           </GlobalModalContextProvider>
